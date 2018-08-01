@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}Questions | {{ block.super }}{% endblock %}
+
+{% block content %}
+    {{ block.super }}
+    <ul class="breadcrumbs">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'faq:list' %}">Courses</a></li>
+        {% block breadcrumbs %}{% endblock %}
+    </ul>
+{% endblock %}

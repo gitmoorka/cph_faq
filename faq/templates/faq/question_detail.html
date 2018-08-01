@@ -1,0 +1,18 @@
+{% extends "faq/layout.html" %}
+{% load course_extras %}
+
+{% block title %}{{ question.question_text }}{% endblock %}
+
+{% block content %}
+    <div class="row columns">
+        {{ block.super }}
+        <article>
+            <h1 class="">{{ question.question_text }}</h1>
+
+            <div class="callout secondary">
+                {{ question.question_text|markdown_to_html }}
+            </div>
+
+        </article>
+    </div>
+{% endblock %}

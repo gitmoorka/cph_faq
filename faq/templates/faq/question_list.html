@@ -1,0 +1,23 @@
+{% extends "faq/layout.html" %}
+
+{% block title %}All questions{% endblock %}
+
+{% block content %}
+    <div class="row columns">
+        {{ block.super }}
+    </div>
+    <div class="row">
+        {%  for question in questions %}
+            <div class="small-6 columns">
+                <div class="callout">
+                    <h5><a href="{% url 'faq:question_detail' pk=question.pk %}">{{ question.question_text }}</a></h5>
+                </div>
+            </div>
+
+            {% if forloop.counter|divisibleby:"2" %}
+                </div>
+                <div class="row">
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}
