@@ -1,23 +1,37 @@
 {% extends "faq/layout.html" %}
 
-{% block title %}All questions{% endblock %}
+<{% block title %}All questions{% endblock %}
 
 {% block content %}
+
     <div class="row columns">
         {{ block.super }}
     </div>
-    <div class="row">
-        {%  for question in questions %}
-            <div class="small-6 columns">
-                <div class="callout">
-                    <h5><a href="{% url 'faq:question_detail' pk=question.pk %}">{{ question.question_text }}</a></h5>
-                </div>
-            </div>
 
-            {% if forloop.counter|divisibleby:"2" %}
-                </div>
-                <div class="row">
-            {% endif %}
-        {% endfor %}
-    </div>
+
+<div class="row">
+    <h1>Questions</h1>
+        <div class="columns">
+            <ul>
+                {% for question in object_list %}
+                    <div class="callout">
+                        <div class="card-copy">
+                            <a href="{% url 'faq:question-detail' slug=question.slug %}">{{ question.question_text }}</a>
+                                <span class="card-info">
+                                <ul>
+                                <li>{{ question.pub_date|date }}</li>
+                                <li>Points: {{ total_points }}</li>
+                                <li>Author:</li>
+                                <li>Answers:</li>
+                                </ul>
+                                </span>
+                        </div>
+                    </div>
+                {% empty %}
+                    <li>No questions that match the query.</li>
+                {% endfor %}
+            </ul>
+        </div>
+</div>
 {% endblock %}
+

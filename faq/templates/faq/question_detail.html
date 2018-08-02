@@ -10,9 +10,9 @@
             <h1 class="">{{ question.question_text }}</h1>
 
             <div class="callout secondary">
-                {{ question.question_text|markdown_to_html }}
+                <p>Published: {{ object.pub_date|date }}</p>
+                <p>Rating: {{ total_points }}</p>
             </div>
-
         </article>
     </div>
 {% endblock %}
