@@ -1,6 +1,7 @@
 <!doctype html>
 {% load static from staticfiles %}
 {% load faq_extras %}
+
 <html class="no-js" lang="en">
     <head>
         <meta charset="utf-8">
@@ -13,16 +14,28 @@
         <meta class="foundation-mq">
     </head>
     <body>
-
+<nav class="top-bar" role="navigation">
+            <section class="top-bar-left">
+                <ul class="dropdown menu" data-dropdown-menu role="menubar">
+                    <li class="menu-text">Copenhagen FAQ</li>
+                    <li class="has-submenu">
+                        <a href="#">Questions</a>
+                         <ul class="submenu menu vertical" data-submenu role="menu">
+                             <li><a href="{% url 'faq:list' %}">See all &rarr;</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        </nav>
         {% block content %}{% endblock %}
         <footer class="row columns">
             <hr/>
             <div class="small-6 columns">
-                <p>&copy; The Learning Site</p>
+                <p>Copenhagen FAQ</p>
             </div>
             <div class="small-6 columns">
                 <ul class="inline-list no-bullet float-right">
-                    <li><a href="{% url 'faq:index' %}">Courses</a></li>
+                    <li><a href="{% url 'faq:index' %}">Faq</a></li>
                 </ul>
             </div>
         </footer>

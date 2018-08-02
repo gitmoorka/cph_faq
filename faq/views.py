@@ -1,10 +1,11 @@
 from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponse
 from .models import Question, Answer
+from django.shortcuts import render_to_response
+
 
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    return render_to_response('faq/home.html')
 
 def question_list(request):
     question = Question.objects.all()
