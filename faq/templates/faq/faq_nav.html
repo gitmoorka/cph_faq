@@ -1,0 +1,3 @@
+{% for question in questions %} 
+    <li><a href="{% url 'faq:detail' pk=question.pk %}">{{ question.question_text }}</a></li>
+{% endfor %}

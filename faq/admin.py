@@ -4,8 +4,7 @@ from django.contrib import admin
 
 from .models import Question, Answer, AnswerVote, QuestionVote
 
-
-admin.register(Question)
-admin.register(Answer)
-admin.register(AnswerVote)
-admin.register(QuestionVote)
+admin.site.register(Question)
+admin.site.register(Answer)
+admin.site.register(AnswerVote)
+admin.site.register(QuestionVote)

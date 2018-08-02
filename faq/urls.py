@@ -6,5 +6,5 @@ app_name = 'faq'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('<int:pk>/', views.question_detail, name='detail'),
+    path('question/<int:pk>/', views.question_detail, name='detail'),
 ]

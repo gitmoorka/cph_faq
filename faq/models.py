@@ -1,12 +1,16 @@
 from django.db import models
+from django.utils.text import slugify
+
 
 class Question(models.Model):
-    slug = models.SlugField(max_length=200)
     question_text = models.TextField(default="")
+    slug = models.SlugField(max_length=200)
     pub_date = models.DateTimeField('date published', auto_now_add=True)
     positive_votes = models.IntegerField(default=0)
     negative_votes = models.IntegerField(default=0)
     total_points = models.IntegerField(default=0)
+    def __str__(self):
+        return self.question_text
 
 
 class Answer(models.Model):
@@ -16,6 +20,8 @@ class Answer(models.Model):
     positive_votes = models.IntegerField(default=0)
     negative_votes = models.IntegerField(default=0)
     total_points = models.IntegerField(default=0)
+    def __str__(self):
+        return self.answer_text
 
 class VoteParent(models.Model):
     """Abstract model to define the basic elements to every single vote."""
