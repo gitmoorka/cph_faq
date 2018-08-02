@@ -6,7 +6,7 @@
     {{ block.super }}
     <ul class="breadcrumbs">
         <li><a href="{% url 'home' %}">Home</a></li>
-        <li><a href="{% url 'faq:list' %}">Courses</a></li>
+        <li><a href="{% url 'faq:index' %}">Questions</a></li>
         {% block breadcrumbs %}{% endblock %}
     </ul>
 {% endblock %}

@@ -3,22 +3,15 @@ from django.utils.safestring import mark_safe
 
 import markdown2
 
-from courses.models import Question
+from faq.models import Question
 
 
 register = template.Library() 
 
 @register.simple_tag
 def newest_question():
-    '''Gets the most recent course that was added to the library'''
-    return Question.objects.latest('created_at')
-
-
-@register.inclusion_tag('faq/faq_nav.html')
-def nav_faq_index(): 
-    '''Returns dictionary of courses to display as navigation pane'''
-    courses = Question.objects.all()[:5]
-    return {'questions': questions}
+    '''Gets the most recent question that was added to the site'''
+    return Question.objects.latest('pub_date')
 
 
 @register.filter('markdown_to_html')
