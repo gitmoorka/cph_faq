@@ -5,12 +5,3 @@
 li {
     list-style-type: none;
 }
-
-.login-widget {
-display: inline-block;
-float: right;
-}
-
-.login-widget li {
-display: inline-block;
-}

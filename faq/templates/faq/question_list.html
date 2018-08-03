@@ -4,18 +4,14 @@
 
 {% block content %}
 
-    <div class="row columns">
-        {{ block.super }}
-    </div>
+<div class="breadcrumbs">
+    {{ block.super }}
+</div>
 
-
-<div class="row">
-    <h1>Questions</h1>
-        <div class="columns">
-            <ul>
+<div class="page-title"><h1>All questions</h1></div>
+<div class="question-block">
                 {% for question in object_list %}
-                    <div class="callout">
-                        <div class="card-copy">
+                        <div class="question card-body">
                             <a href="{% url 'faq:question-detail' slug=question.slug %}">{{ question.question_text }}</a>
                                 <span class="card-info">
                                 <ul>
@@ -26,12 +22,9 @@
                                 </ul>
                                 </span>
                         </div>
-                    </div>
                 {% empty %}
-                    <li>No questions that match the query.</li>
+                    <span>No questions that match the query.</span>
                 {% endfor %}
-            </ul>
-        </div>
 </div>
 {% endblock %}
 

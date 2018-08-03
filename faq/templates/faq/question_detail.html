@@ -4,15 +4,14 @@
 {% block title %}{{question.question_text}}{% endblock %}
 
 {% block content %}
-    <div class="row columns">
-        {{ block.super }}
-        <article>
-            <h1 class="">{{ question.question_text }}</h1>
+<div class="question-detail">
+    <question>
+        <h1 class="">{{ question.question_text }}</h1>
 
-            <div class="callout secondary">
-                <p>Published: {{ object.pub_date|date }}</p>
-                <p>Rating: {{ total_points }}</p>
-            </div>
-        </article>
-    </div>
+        <div class="question-meta">
+            <p>Published: {{ object.pub_date|date }}</p>
+            <p>Rating: {{ total_points }}</p>
+        </div>
+    </question>
+</div>
 {% endblock %}

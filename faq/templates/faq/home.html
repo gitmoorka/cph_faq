@@ -4,15 +4,18 @@
 {% block title %}{{question.question_text}}{% endblock %}
 
 {% block content %}
-    <div class="row columns">
+
+<div class="breadcrumbs">
         {{ block.super }}
-        <article>
-            <h1 class="">{{ question.question_text }}</h1>
+</div>
+<div>
+    <article>
+        <h1 class="">{{ question.question_text }}</h1>
 
-            <div class="callout secondary">
-                {{ question.question_text|markdown_to_html }}
-            </div>
+        <div class="callout secondary">
+            {{ question.question_text|markdown_to_html }}
+        </div>
 
-        </article>
-    </div>
+    </article>
+</div>
 {% endblock %}
